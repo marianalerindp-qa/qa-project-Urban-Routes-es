@@ -28,8 +28,8 @@ SO Windows 11 Home
 Google Chrome Versión 146.0.7680.178 (Build oficial) (64 bits)
 
 * Pycharm 2025.3.3
-* GitHub
-* Git Bash
+* Git version 2.53.0.windows.2
+
 
 \##Técnicas
 
@@ -48,4 +48,15 @@ Google Chrome Versión 146.0.7680.178 (Build oficial) (64 bits)
   * .get
 * Esperas explicitas con WebDriverWait
 * Modelo POM
+
+# Configuración del servidor
+
+**IMPORTANTE**: Este proyecto utiliza un servidor temporal de TripleTen. 
+
+Para ejecutar las pruebas:
+1. Solicita una nueva URL del servidor en tu plataforma de TripleTen
+2. Actualiza la variable `urban_routes_url` en el archivo `data.py`
+3. Ejecuta las pruebas normalmente
+
+
 
