@@ -26,10 +26,10 @@ class UrbanRoutesPage:
     add_pay_button = (By.CSS_SELECTOR, "div.pp-button.filled > div.pp-text")
     add_card_button = (By.CSS_SELECTOR, "div.pp-row.disabled")
     card_number_field = (By.CSS_SELECTOR, "#number")
-    cvv_number_field = (By.CSS_SELECTOR, "#code")
+    cvv_number_field = (By.CSS_SELECTOR, "input#code.card-input")
     card_space = (By.CSS_SELECTOR, ".card-wrapper")
     add_card_number_button = (By.CSS_SELECTOR, "div.pp-buttons > button[type='submit']")
-    close_pay_section_button = (By.CSS_SELECTOR, "button.close-button")
+    close_pay_section_button = (By.XPATH, "//*[@id='root']/div/div[2]/div[2]/div[1]/button")
 
     #Elementos de requisitos extras
     message_field = (By.ID, "comment")
@@ -115,16 +115,11 @@ class UrbanRoutesPage:
 
     def set_card_number(self, card_number):
         WebDriverWait(self.driver,10).until(expected_conditions.presence_of_element_located(self.card_number_field))
-        self.driver.find_element(*self.card_number_field).send_keys(card_number)
-        self.driver.find_element(*self.card_number_field).send_keys(Keys.TAB)
+        self.driver.find_element(*self.card_number_field).send_keys(card_number + Keys.TAB)
 
     def set_card_code(self, card_code):
         element = self.driver.find_element(*self.cvv_number_field)
-        self.driver.execute_script("""
-                arguments[0].value = arguments[1];
-                arguments[0].dispatchEvent(new Event('input', { bubbles: true }));
-                arguments[0].dispatchEvent(new Event('change', { bubbles: true }));
-            """, element, card_code)
+        self.driver.find_element(*self.cvv_number_field).send_keys(card_code)
 
     def click_space(self):
         WebDriverWait(self.driver,10).until(expected_conditions.visibility_of_element_located(self.card_space))
@@ -136,7 +131,6 @@ class UrbanRoutesPage:
     def is_add_card_button_enabled(self):
         element = self.driver.find_element(*self.add_card_number_button)
         return element.is_enabled()
-
 
 
     def add_card_number(self):

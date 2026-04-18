@@ -77,7 +77,7 @@ class TestUrbanRoutes:
 
         assert routes_page.is_add_card_button_enabled() == True
         routes_page.add_card_number()
-        #routes_page.close_pay_section_button()
+        routes_page.close_pay_section()
 
     def test_write_message_to_driver(self):
         routes_page = UrbanRoutesPage(self.driver)
