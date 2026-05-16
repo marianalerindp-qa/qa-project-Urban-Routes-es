@@ -17,10 +17,13 @@ Se necesitan comprobar 9 acciones:
 8. Aparece el modal para buscar un taxi.
 9. Esperar a que aparezca la información del conductor en el modal (opcional).
 
-Nota:La última prueba se exceptúa ya que no es posible abrir la ventana para detectar el elemento requerido,
+### Resultados: 
+Las primeras 8 pruebas fueron aprobadas, no se mostró error, dejando pendiente la última prueba que nos mostró un error bloqueante en la interfaz.
+
+**Nota:** La última prueba se exceptúa ya que no es posible abrir la ventana para detectar el elemento requerido,
 por lo tanto, no se puede usar un localizador.
 
-\##Tecnología
+## Tecnología
 
 Se utilizó el siguiente ambiente:
 
@@ -31,13 +34,14 @@ Google Chrome Versión 146.0.7680.178 (Build oficial) (64 bits)
 * Git version 2.53.0.windows.2
 
 
-\##Técnicas
+## Técnicas
 
 * Localizadores:
   * By.ID
   * By.CLASS_NAME
   * By.CSS_SELECTOR
   * By.XPATH
+    
 * Importaciones de métodos:
   * by
   * expected_conditions
@@ -46,6 +50,7 @@ Google Chrome Versión 146.0.7680.178 (Build oficial) (64 bits)
   * .click
   * .text
   * .get
+    
 * Esperas explicitas con WebDriverWait
 * Modelo POM
 
